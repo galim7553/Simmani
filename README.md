@@ -54,8 +54,7 @@
 
 | 항목명        | 설명      |
 | ------------- | ------------- |
-| Design Patterns  | - Factory Pattern: 객체 생성 로직을 캡슐화
-- Singleton Pattern: 매니저 클래스 관리|
+| Design Patterns  | - Factory Pattern: 객체 생성 로직을 캡슐화\n - Singleton Pattern: 매니저 클래스 관리|
 | UI Object Binding  | 자식 컴포넌트 자동 바인딩  |
 | Object Pooling  | 자주 사용하는 Object를 Stack 기반으로 풀링  |
 | BFS  | 너비 우선 탐색 기반으로 항로 연결 여부 계산  |
