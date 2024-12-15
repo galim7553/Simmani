@@ -54,10 +54,10 @@
 
 | 항목명        | 설명      |
 | ------------- | ------------- |
-| Design Patterns  | - Factory Pattern: 객체 생성 로직을 캡슐화\n - Singleton Pattern: 매니저 클래스 관리|
+| Design Patterns  | - Factory Pattern: 객체 생성 로직을 캡슐화<br> - Singleton Pattern: 매니저 클래스 관리<br> - State Pattern: AI 상태 관리<br> - Command Pattern: 게임상 특정 동작들을 객체로 분리<br> - Strategy Pattern 응용: 오브젝트의 각 모듈을 인터페이스로 사용<br> - MVP Pattern: UI 요소들에 사용|
 | UI Object Binding  | 자식 컴포넌트 자동 바인딩  |
 | Object Pooling  | 자주 사용하는 Object를 Stack 기반으로 풀링  |
-| BFS  | 너비 우선 탐색 기반으로 항로 연결 여부 계산  |
-| TaskSequencer  | UI 연출 순차 진행을 위해 사용  |
-| ExcelToJsonConverter  | Editor 스크립트로 Excel 파일을 Json 파일로 자동 변환  |
-
+| Unity Editor Script  |  원본 에셋의 Collider 수정, CustomPropertyDrawer에 활용 |
+| Scriptable Asset  |  테스트 플레이 중 설정값 편집에 활용 |
+| Extension Method  |  컴포넌트 바인딩, 리스트 중 랜덤 선택 등에 활용 |
+| Avatar Mask |  3D 애니메이션에 활용 |
