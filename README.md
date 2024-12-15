@@ -6,6 +6,25 @@
 - 3D 생존 RPG
 ## 게임 소개
 - 몬스터들을 피해 목표치만큼의 산삼을 채집해 오래 살아남는 것이 목표인 게임입니다.
+<table>
+  <tr>
+    <td><img src="./Clips/1.png" width="400"></td>
+    <td><img src="./Clips/2.png" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="./Clips/3.png" width="400"></td>
+    <td><img src="./Clips/4.png" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="./Clips/5.png" width="400"></td>
+    <td><img src="./Clips/6.png" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="./Clips/7.png" width="400"></td>
+    <td><img src="./Clips/8.png" width="400"></td>
+  </tr>
+</table>
+
 ## 소개 영상
 (링크 삽입할 것)
 ## 개발 목적
