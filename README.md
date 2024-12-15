@@ -92,6 +92,6 @@
 | UI Object Binding  | 자식 컴포넌트 자동 바인딩  |
 | Object Pooling  | 자주 사용하는 Object를 Stack 기반으로 풀링  |
 | Unity Editor Script  |  원본 에셋의 대규모 Collider 수정, CustomPropertyDrawer에 활용 |
-| Scriptable Asset  |  테스트 플레이 중 설정값 편집에 활용 |
+| Scriptable Object  |  테스트 플레이 중 설정값 편집에 활용 |
 | Extension Method  |  컴포넌트 바인딩, 리스트 중 랜덤 선택 등에 활용 |
 | Avatar Mask |  3D 애니메이션에 활용 |
