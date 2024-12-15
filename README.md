@@ -26,7 +26,7 @@
 </table>
 
 ## 소개 영상
-(링크 삽입할 것)
+[(소개영상)](https://www.youtube.com/watch?v=pqw_-IGxv8Q)
 ## 개발 목적
 - Unity 3D 기술 활용
 - 디버깅과 확장이 용이한 설계 지향
