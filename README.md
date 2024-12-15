@@ -43,8 +43,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 ## 작업 기간
 - 2024년 10월 ~
 ## 빌드
-(링크 삽입할 것)
-
+- [Stand Alone](https://drive.google.com/file/d/1BLxmyynvWDg6LR1g5DV5Ho8IA1CaVsni/view?usp=drive_link)
 - 데이터 저장/로드, 게임 오버, 서브 퀘스트 등은 작업 중에 있습니다.
 ## 조작법
 - WASD: 이동
