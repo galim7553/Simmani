@@ -61,6 +61,8 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ## 사용 에셋
 - TextMeshPro
+- Cinemachine
+- Terrain Tools
 - 문화체육관광부 메타버스 데이터랩
 
   플레이어 캐릭터 모델 에셋
