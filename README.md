@@ -31,6 +31,9 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 ## 개발 목적
 - Unity 3D 기술 활용
 - 디버깅과 확장이 용이한 설계 지향
+## 담당 파트
+- 모든 클라이언트 프로그래밍
+- 일부 에셋 편집
 ## 개발 환경
 - Unity 2022.3.45f1
 - Unity Universal RP(URP) 14.0.11
