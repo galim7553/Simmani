@@ -1,17 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static GamePlay.Modules.ICombatStater;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 전투 상태를 관리하는 모듈 구현체.
+    /// </summary>
     public class CombatStater : ModuleBase, ICombatStater, IUpdatable
     {
 
         public ICombatStaterModel Model { get; private set; }
-
-        public CombatState State => _curState.State;
+        public CombatState State => _curState.State; // 현재 전투 상태
 
         IState _curState;
         IState[] _states;
@@ -23,17 +23,20 @@ namespace GamePlay.Modules
         {
             Model = model;
 
+            // 상태 초기화
             _states = new IState[Enum.GetValues(typeof(CombatState)).Length];
             for (int i = 0; i < _states.Length; i++)
                 _states[i] = StateBase.CreateState((CombatState)i, this);
             _curState = _states[0];
 
+            // 작업 배열 초기화
             _enterActions = new Action[_states.Length];
             _exitActions = new Action[_states.Length];
         }
 
         public void OnUpdate()
         {
+            // 현재 상태 업데이트
             if (_curState != null)
                 _curState.Update(Time.deltaTime);
         }
@@ -80,6 +83,9 @@ namespace GamePlay.Modules
             }
         }
 
+        /// <summary>
+        /// 전투 상태를 정의하는 인터페이스.
+        /// </summary>
         public interface IState
         {
             CombatState State { get; }

@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace GamePlay.Components
 {
+    /// <summary>
+    /// Pointer Enter 및 Exit 이벤트를 처리하는 핸들러.
+    /// </summary>
     public class PointerEnterHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public event Action OnPointerEntered;

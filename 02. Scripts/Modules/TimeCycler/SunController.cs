@@ -1,12 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 게임 내 태양 효과를 제어하는 모듈.
+    /// </summary>
     public class SunController : ModuleBase, IUpdatable, ILightController
     {
         ITimeCycleModel _model;
@@ -20,14 +21,24 @@ namespace GamePlay.Modules
         Vector3 _InitialEuler;
         Color _lightColor;
 
+        /// <summary>현재 태양 강도의 정규화 값 (0.0 ~ 1.0).</summary>
         public float NormalizedIntensity { get; private set; }
 
+
+        /// <summary>
+        /// SunController의 생성자.
+        /// </summary>
+        /// <param name="model">시간 주기 모델.</param>
+        /// <param name="light">태양 조명 객체.</param>
+        /// <param name="volume">포스트 프로세싱 볼륨.</param>
         public SunController(ITimeCycleModel model, Light light, Volume volume)
         {
             _model = model;
             _light = light;
             _volume = volume;
             _transform = _light.transform;
+
+            // ColorAdjustments와 Bloom 효과를 초기화.
             if (_volume.profile.TryGet<ColorAdjustments>(out _colorAdjustments) == false)
                 Debug.LogError("Volume에서 ColorAdjustments를 찾을 수 없습니다.");
             if(_volume.profile.TryGet<Bloom>(out _bloom) == false)
@@ -36,6 +47,9 @@ namespace GamePlay.Modules
             _InitialEuler = _transform.eulerAngles;
         }
 
+        /// <summary>
+        /// 매 프레임 갱신.
+        /// </summary>
         public void OnUpdate()
         {
             Update();

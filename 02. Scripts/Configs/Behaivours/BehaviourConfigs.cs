@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Modules.AI;
 using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 공격 행동 설정 클래스. 공격 간격, 회전 속도, 각도 제한을 정의합니다.
+    /// </summary>
     [Serializable]
     public class AttackingBehaviourConfig : ConfigBase, IAttackingBehaviourConfig
     {
@@ -17,6 +18,10 @@ namespace GamePlay.Configs
         public float AngleThreshold => _angleThreshold;
         public float RotSpeed => _rotSpeed;
     }
+
+    /// <summary>
+    /// 추적 행동 설정 클래스. 추적 속도 비율을 정의합니다.
+    /// </summary>
     [Serializable]
     public class TraceBehaviourConfig : ConfigBase, ITraceBehaviourConfig
     {
@@ -24,6 +29,10 @@ namespace GamePlay.Configs
         [SerializeField] float _speedRatio = 1.5f;
         public float SpeedRatio => _speedRatio;
     }
+
+    /// <summary>
+    /// 순찰 행동 설정 클래스. 순찰 범위, 간격, 속도를 정의합니다.
+    /// </summary>
     [Serializable]
     public class PatrolBehaviourConfig : ConfigBase, IPatrolBehaviourConfig
     {
@@ -39,6 +48,10 @@ namespace GamePlay.Configs
         public float MaxSpan => _maxSpan;
         public float SpeedRatio => _speedRatio;
     }
+
+    /// <summary>
+    /// 복귀 행동 설정 클래스. 복귀 속도를 정의합니다.
+    /// </summary>
     [Serializable]
     public class ReturnToSpawnBehaivourConfig : ConfigBase, IReturnToSpawnBehaviourConfig
     {
@@ -47,6 +60,9 @@ namespace GamePlay.Configs
         public float SpeedRatio => _speedRatio;
     }
 
+    /// <summary>
+    /// 경로 순회 행동 설정 클래스. 순회 방식, 속도 비율, 감속 거리를 정의합니다.
+    /// </summary>
     [Serializable]
     public class PathFollowingBehaviourConfig : ConfigBase, IPathFollowingBehaviourConfig
     {

@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Datas;
 using GamePlay.Modules;
-using GamePlay.Scene;
-using UnityEngine;
 
 namespace GamePlay.Commands
 {
+    /// <summary>
+    /// 대감 명령을 구현하는 클래스.
+    /// </summary>
     public class DaegamCommand : IInteractionCommand
     {
         IDaegamCommandConfig _config;
@@ -34,6 +33,7 @@ namespace GamePlay.Commands
 
             _conversationPlayer.OnCompleted += OnGreetingCompleted;
 
+            // 대감의 환영 대화 시작.
             _conversationPlayer.StartConversation(_config.GreetingConversationKey);
             ProcessModel processModel = new ProcessModel(IProcessable.ProcessType.Idle, 0, null, OnProcessFailed);
 
@@ -42,6 +42,7 @@ namespace GamePlay.Commands
 
         void OnProcessFailed()
         {
+            // 대화 실패 시 처리.
             _conversationPlayer.StopConversation();
             _conversationPlayer = null;
             _onRunnableEnded = null;
@@ -49,6 +50,7 @@ namespace GamePlay.Commands
         }
         void OnGreetingCompleted()
         {
+            // 인사 대화 완료 시 다음 대화 진행.
             _onRunnableEnded?.Invoke();
             _onRunnableEnded = null;
             _conversationPlayer.OnCompleted -= OnGreetingCompleted;

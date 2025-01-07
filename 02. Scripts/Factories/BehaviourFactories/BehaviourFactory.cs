@@ -1,16 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using GamePlay.Modules.AI;
 using UnityEngine;
 
 namespace GamePlay.Factories
 {
+    /// <summary>
+    /// 다양한 AI 행동(Behaviour)을 생성하는 팩토리 클래스.
+    /// 행동 설정과 AI 유형에 따라 적합한 행동 객체를 반환합니다.
+    /// </summary>
     public class BehaviourFactory : ConfigMapBase<IBehaviourConfig>, IBehaviourFactory
     {
+        /// <summary>
+        /// 행동 설정을 기반으로 팩토리를 초기화합니다.
+        /// </summary>
+        /// <param name="configs">행동 설정의 컬렉션.</param>
         public BehaviourFactory(IEnumerable<IBehaviourConfig> configs) : base(configs)
         { 
         }
-        
+
+        /// <summary>
+        /// 주어진 키와 AI 인스턴스를 기반으로 행동(Behaviour)을 생성합니다.
+        /// </summary>
+        /// <param name="key">행동의 키 값.</param>
+        /// <param name="ai">행동을 수행할 AI 인스턴스.</param>
+        /// <returns>생성된 행동 인스턴스.</returns>
         public IBehaviour CreateBehaviour(string key, IAI ai)
         {
             if(_configMap.TryGetValue(key, out var config))

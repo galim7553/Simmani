@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +6,9 @@ using UnityEngine.UI;
 
 namespace GamePlay.Components
 {
+    /// <summary>
+    /// UI 요소를 드래그 앤 드롭으로 조작할 수 있는 핸들러.
+    /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class DragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -27,6 +29,10 @@ namespace GamePlay.Components
         {
             _rectTransform = GetComponent<RectTransform>();
         }
+
+        /// <summary>
+        /// 드래그 앤 드롭 핸들러 초기화.
+        /// </summary>
         public void Initialize()
         {
             _scrollRect = GetComponentInParent<ScrollRect>(true);

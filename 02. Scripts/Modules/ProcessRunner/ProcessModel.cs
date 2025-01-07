@@ -1,10 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 처리 가능한 작업의 기본 구현입니다.
+    /// </summary>
     public class ProcessModel : IProcessable
     {
         public IProcessable.ProcessType Type { get; private set; }

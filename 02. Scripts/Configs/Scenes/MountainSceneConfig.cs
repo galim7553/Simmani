@@ -1,11 +1,13 @@
 using GamePlay.Scene;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 산 씬(Scene)과 관련된 설정을 정의하는 클래스.
+    /// 맵 데이터와 Terrain Culling(최적화) 설정을 포함합니다.
+    /// </summary>
     [Serializable]
     public class MountainSceneConfig : ITerrainCullerModel
     {

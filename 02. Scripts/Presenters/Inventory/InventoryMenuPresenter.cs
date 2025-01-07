@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 namespace GamePlay.Presenters
 {
+    /// <summary>
+    /// 인벤토리 메뉴를 관리하고, 아이템 및 상점 관련 인터랙션을 처리하는 프레젠터.
+    /// </summary>
     public class InventoryMenuPresenter : ResourceDependentPresenterBase<IInventoryModel, InventoryMenuView>
     {
         ViewFactory _viewFactory;
@@ -26,6 +29,9 @@ namespace GamePlay.Presenters
             Initialize();
         }
 
+        /// <summary>
+        /// 초기화 작업을 수행.
+        /// </summary>
         void Initialize()
         {
             _view.Initialize();
@@ -33,6 +39,9 @@ namespace GamePlay.Presenters
             _itemInfoPresenter = new ItemInfoPresenter(this, _model, _view.GetItemInfoView(InventoryMenuView.ItemInfoViewKey.ItemInfoView));
         }
 
+        /// <summary>
+        /// 인벤토리 메뉴 표시 여부를 설정.
+        /// </summary>
         public void DisplayInventoryMenu(bool isVisible, IShopModel shopModel = null)
         {
             IsVisible = isVisible;
@@ -54,7 +63,9 @@ namespace GamePlay.Presenters
             _view.gameObject.SetActive(IsVisible);
         }
 
-
+        /// <summary>
+        /// 상점 모델 설정.
+        /// </summary>
         void SetShopModel(IShopModel shopModel)
         {
             _shopModel = shopModel;

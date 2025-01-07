@@ -1,10 +1,12 @@
 using System;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace GamePlay.Views
 {
+    /// <summary>
+    /// 인벤토리에서 아이템 정보를 표시하는 UI 뷰.
+    /// </summary>
     public class ItemInfoView : ViewBase
     {
         public enum ImageKey
@@ -29,6 +31,10 @@ namespace GamePlay.Views
 
         public event Action OnUseButtonClicked;
         public event Action OnDumpButtonClicked;
+
+        /// <summary>
+        /// 뷰를 초기화합니다.
+        /// </summary>
         public void Initialize()
         {
             if (_hasInitialized == true) return;
@@ -43,6 +49,9 @@ namespace GamePlay.Views
             _hasInitialized = true;
         }
 
+        /// <summary>
+        /// 버튼 활성화 상태를 설정합니다.
+        /// </summary>
         public void SetButtonActive(ButtonKey buttonKey, bool isActive)
         {
             GetButton((int)buttonKey).gameObject.SetActive(isActive);

@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Hubs;
 using UnityEngine;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 작업 실행을 관리하는 기본 클래스입니다.
+    /// </summary>
     public class ProcessRunner : ModuleBase, IProcessRunner
     {
         ICoroutineRunner _runner;

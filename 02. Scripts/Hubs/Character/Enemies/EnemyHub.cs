@@ -8,6 +8,10 @@ using UnityEngine.AI;
 
 namespace GamePlay.Hubs
 {
+    /// <summary>
+    /// 적의 동작과 상태를 관리하는 Hub 클래스.
+    /// 적의 AI, 전투, 이동, 상호작용 등을 담당합니다.
+    /// </summary>
     public class EnemyHub : ObjectHub, IUpdater, IFixedUpdater, IModelDependent<EnemyModel>, IAttackable
     {
         enum ChildKey
@@ -17,6 +21,9 @@ namespace GamePlay.Hubs
             HitSphereCenter,
         }
 
+        /// <summary>
+        /// 적의 구성 요소를 관리하는 클래스.
+        /// </summary>
         public class EnemyComponents
         {
             public Renderer[] Renderers {  get; private set; }

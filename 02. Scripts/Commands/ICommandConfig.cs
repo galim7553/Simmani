@@ -1,10 +1,10 @@
 using GamePlay.Configs;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace GamePlay.Commands
 {
+    /// <summary>
+    /// 명령 설정 인터페이스.
+    /// </summary>
     public interface ICommandConfig : IConfig
     {
     }

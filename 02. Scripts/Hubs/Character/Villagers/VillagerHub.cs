@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using GamePlay.Hubs;
 using UnityEngine;
 
 namespace GamePlay.Hubs
 {
+    /// <summary>
+    /// 마을 주민 구현.
+    /// </summary>
     public class VillagerHub : ObjectHub
     {
         public class VillagerComponents

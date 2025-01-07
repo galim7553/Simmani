@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace GamePlay.Views
 {
+    /// <summary>
+    /// 개별 핫키 UI를 제어하는 뷰 클래스.
+    /// </summary>
     public class HotKeyView : ViewBase
     {
         public enum ImageKey

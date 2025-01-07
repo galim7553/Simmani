@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using GamePlay.Factories;
 using GamePlay.Hubs.Equipments;
@@ -7,6 +5,9 @@ using UnityEngine;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 장비 장착을 실제로 처리하는 클래스.
+    /// </summary>
     public class Equipper : ModuleBase, IEquipper
     {
         IEquipperModel _model;
@@ -35,6 +36,9 @@ namespace GamePlay.Modules
         }
 
 
+        /// <summary>
+        /// 장착 슬롯과 본(HumanBodyBones)을 매핑합니다.
+        /// </summary>
         void MapEquipSlots()
         {
             foreach(var slot in _model.Config.EquipSlots)
@@ -52,6 +56,9 @@ namespace GamePlay.Modules
                 Equip(kvp.Key, kvp.Value);
         }
 
+        /// <summary>
+        /// 장비를 실제로 장착합니다.
+        /// </summary>
         public void Equip(EquipSlot slot, IEquipmentModel model)
         {
             if (_equipSlotMap.TryGetValue(slot, out var parent) == false)
@@ -70,6 +77,10 @@ namespace GamePlay.Modules
 
             Cache.AddEquipment(equipment);
         }
+
+        /// <summary>
+        /// 장비를 실제로 해제합니다.
+        /// </summary>
         public void Unequip(EquipSlot slot, IEquipmentModel model)
         {
             if (_equipmentMap.ContainsKey(slot) == true)
@@ -85,6 +96,10 @@ namespace GamePlay.Modules
             }
         }
 
+
+        /// <summary>
+        /// 모든 장비를 해제합니다.
+        /// </summary>
         void UnequipAll()
         {
             foreach(var equipment in _equipmentMap.Values)

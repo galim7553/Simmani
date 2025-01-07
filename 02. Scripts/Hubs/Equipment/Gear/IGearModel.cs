@@ -1,10 +1,10 @@
 using GamePlay.Configs;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace GamePlay.Hubs.Equipments
 {
+    /// <summary>
+    /// 기어 모델 인터페이스.
+    /// </summary>
     public interface IGearModel
     {
         GearConfig Config { get; }

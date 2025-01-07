@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace GamePlay.Views
 {
+    /// <summary>
+    /// 마을 로딩 화면의 UI 요소를 관리하는 뷰.
+    /// </summary>
     public class TownLoadingView : ViewBase
     {
         public enum TMPKey

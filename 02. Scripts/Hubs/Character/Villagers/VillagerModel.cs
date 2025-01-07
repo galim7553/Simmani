@@ -1,12 +1,12 @@
 using GamePlay.Configs;
 using GamePlay.Factories;
 using GamePlay.Modules;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace GamePlay.Hubs
 {
+    /// <summary>
+    /// ¸¶À» ÁÖ¹Î ¸ðµ¨.
+    /// </summary>
     public class VillagerModel : HubModelBase<VillagerConfig>
     {
         public InteractorModel InteractorModel {  get; private set; } 

@@ -1,11 +1,13 @@
 using GamePlay.Commands;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// HeroModel에 적용되는 명령 설정을 정의하는 클래스입니다.
+    /// 명령 유형과 수치를 제공합니다.
+    /// </summary>
     [Serializable]
     public class HeroModelCommandConfig : ConfigBase, IHeroModelCommandConfig
     {

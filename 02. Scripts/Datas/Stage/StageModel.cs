@@ -1,20 +1,28 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Modules;
-using UnityEngine;
 
 namespace GamePlay.Datas
 {
+    /// <summary>
+    /// 스테이지 데이터를 관리하는 클래스입니다.
+    /// </summary>
     public class StageModel : DataDependantModelBase<IStageConfig, StageData>, IStageModel
     {
         StageEnemyInfo _curStageEnemyInfo;
 
+        /// <summary>현재 스테이지 레벨.</summary>
         public int Level => _data.SansamCounts.Count;
+
+        /// <summary>현재 스테이지의 목표 산삼 개수.</summary>
         public int SansamCount => _data.SansamCounts[_data.SansamCounts.Count - 1];
+
+        /// <summary>제출된 산삼 개수.</summary>
         public int SubmitedSansamCount => _data.SubmitedSansamCount;
+
+        /// <summary>남은 목표 산삼 개수.</summary>
         public int RemainedSansamCount => SansamCount - SubmitedSansamCount;
 
+        /// <summary>레벨 변경 이벤트.</summary>
         public event Action OnLevelChanged;
         
         public StageModel(IStageConfig config, StageData data) : base(config, data)
@@ -22,6 +30,7 @@ namespace GamePlay.Datas
             AddLevel();
         }
 
+        /// <summary>스테이지 레벨을 증가시킵니다.</summary>
         public void AddLevel()
         {
             if (_data.SansamCounts.Count == 0)

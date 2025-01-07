@@ -1,23 +1,20 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using GamePlay.Hubs.Equipments;
 using UnityEngine;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// 장비 장착 데이터를 관리하는 기본 구현 클래스.
+    /// </summary>
     public class EquipperModel : ModuleModelBase<IEquipperConfig>, IEquipperModel
     {
-        // ----- Config ----- //
         HashSet<EquipSlot> _equipSlots;
-        // ----- Config ----- //
-
-
         Dictionary<EquipSlot, IEquipmentModel> _equipmentModelMap = new Dictionary<EquipSlot, IEquipmentModel>();
         public IReadOnlyDictionary<EquipSlot, IEquipmentModel> EquipmentModelMap => _equipmentModelMap;
 
         
-
         public event Action<EquipSlot, IEquipmentModel> OnEquipped;
         public event Action<EquipSlot, IEquipmentModel> OnUnequipped;
 
@@ -26,8 +23,14 @@ namespace GamePlay.Modules
             ResetEquipSlots();
         }
 
+        /// <summary>
+        /// 장착 슬롯을 초기화합니다.
+        /// </summary>
         public void ResetEquipSlots() => _equipSlots = new HashSet<EquipSlot>(Config.EquipSlots);
 
+        /// <summary>
+        /// 장비를 장착합니다.
+        /// </summary>
         public bool TryEquip(IEquipmentModel model)
         {
             if(_equipSlots.Contains(model.Config.EquipSlot) == false)
@@ -43,6 +46,10 @@ namespace GamePlay.Modules
             OnEquipped?.Invoke(model.Config.EquipSlot, model);
             return true;
         }
+
+        /// <summary>
+        /// 특정 슬롯의 장비를 해제합니다.
+        /// </summary>
         public void Unequip(EquipSlot slot)
         {
             if (_equipmentModelMap.ContainsKey(slot))

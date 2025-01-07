@@ -1,9 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Modules.AI
 {
+    /// <summary>
+    /// 경로 추적 행동을 구현한 클래스입니다.
+    /// </summary>
     public class PathFollowingBehaviour : BehaviourBase<IPathFollowingBehaviourConfig, IPathFollowableAI>
     {
 

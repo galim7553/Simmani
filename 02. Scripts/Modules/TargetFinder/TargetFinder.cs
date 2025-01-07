@@ -1,9 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Modules
 {
+    /// <summary>
+    /// Å¸°Ù Å½Áö ¸ðµâ ±¸Çö.
+    /// </summary>
     public class TargetFinder : ModuleBase, ITargetFinder
     {
         ITargetFinderModel _model;
@@ -14,6 +16,10 @@ namespace GamePlay.Modules
 
         Collider[] _colliders;
         List<IDamageReceiver> _damageReceivers;
+
+        /// <summary>
+        /// Å¸°Ù Å½Áö ¸ðµâ »ý¼ºÀÚ.
+        /// </summary>
         public TargetFinder(ITargetFinderModel model, Transform transform, Collider collider,
             IDamageReceiverMappable damageReceiverMappable, Transform hitSphereCenter)
         {

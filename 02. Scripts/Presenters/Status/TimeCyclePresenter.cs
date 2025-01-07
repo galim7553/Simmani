@@ -1,21 +1,31 @@
 using GamePlay.Modules;
 using GamePlay.Views;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Presenters
 {
+    /// <summary>
+    /// 시간 흐름(Time Cycle)을 뷰와 동기화하는 Presenter 클래스.
+    /// </summary>
     public class TimeCyclePresenter : ResourceDependentPresenterBase<ITimeCycleModel, TimeCycleView>
     {
         TimeView _curTimeView;
         TimeView _prevTimeView;
         TimeView _nextTimeView;
+
+        /// <summary>
+        /// TimeCyclePresenter 생성자.
+        /// </summary>
+        /// <param name="model">TimeCycle 모델.</param>
+        /// <param name="view">TimeCycle 뷰.</param>
         public TimeCyclePresenter(ITimeCycleModel model, TimeCycleView view) : base(model, view)
         {
             Initialize();
         }
 
+        /// <summary>
+        /// 초기화: 이벤트 등록 및 UI 동기화.
+        /// </summary>
         void Initialize()
         {
             _model.OnHourChanged += UpdateTimeText;
@@ -31,17 +41,27 @@ namespace GamePlay.Presenters
             UpdateTimeViews();
         }
 
+        /// <summary>
+        /// 시간 텍스트 업데이트.
+        /// </summary>
         void UpdateTimeText()
         {
             _view.SetTMP((int)TimeCycleView.TMPKey.TimeText,
                 GetString(_model.KoreanHourTextKey));
         }
+
+        /// <summary>
+        /// 날짜 텍스트 업데이트.
+        /// </summary>
         void UpdateDayText()
         {
             _view.SetTMP((int)TimeCycleView.TMPKey.DayText,
                 GetString(_model.GameDayTextKey));
         }
 
+        /// <summary>
+        /// 시간 뷰(현재, 이전, 다음) 업데이트.
+        /// </summary>
         void UpdateTimeViews()
         {
             _curTimeView.SetImage((int)TimeView.ImageKey.TimeImage,

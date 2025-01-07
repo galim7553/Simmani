@@ -1,10 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Components
 {
+
+    /// <summary>
+    /// 사용자 입력 처리를 담당하는 핸들러.
+    /// </summary>
     public class InputHandler : MonoBehaviour
     {
         const string HORIZONTAL_AXIS = "Horizontal";

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,10 +6,17 @@ using UnityEngine.UI;
 
 namespace GamePlay.Views
 {
+    /// <summary>
+    /// UI 뷰를 관리하는 기본 클래스.
+    /// </summary>
     public class ViewBase : MonoBehaviour
     {
+        // 바인딩된 컴포넌트를 저장하는 딕셔너리
         protected Dictionary<Type, Component[]> _components = new Dictionary<Type, Component[]>();
 
+        /// <summary>
+        /// 특정 타입의 컴포넌트를 enum에 바인딩.
+        /// </summary>
         protected void Bind<T>(Type type) where T : Component
         {
             string[] names = Enum.GetNames(type);
@@ -29,6 +35,10 @@ namespace GamePlay.Views
             }
         }
 
+
+        /// <summary>
+        /// 바인딩된 컴포넌트 반환.
+        /// </summary>
         protected T Get<T>(int idx) where T : Component
         {
             if (_components.TryGetValue(typeof(T), out var components) == true
@@ -39,12 +49,19 @@ namespace GamePlay.Views
             return null;
         }
 
+        /// <summary>
+        /// TextMeshProUGUI 텍스트 설정.
+        /// </summary>
         public void SetTMP(int idx, string text)
         {
             TextMeshProUGUI tmp = GetTMP(idx);
             if (tmp)
                 tmp.text = text;
         }
+
+        /// <summary>
+        /// Image 스프라이트 설정.
+        /// </summary>
         public void SetImage(int idx, Sprite sprite)
         {
             Image image = GetImage(idx);
@@ -78,6 +95,9 @@ namespace GamePlay.Views
 
         }
 
+        /// <summary>
+        /// 뷰 제거 또는 풀에 반환.
+        /// </summary>
         public void DestroyOrReturnToPool()
         {
             Clear();

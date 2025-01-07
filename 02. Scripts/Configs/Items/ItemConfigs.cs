@@ -1,12 +1,14 @@
 using GamePlay.Datas;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 아이템의 설정 데이터를 정의하는 클래스.
+    /// 각 아이템은 타입, 가격, 이름, 스프라이트 경로, 설명 등을 포함합니다.
+    /// </summary>
     [Serializable]
     public class ItemConfig : ConfigBase, IItemConfig
     {

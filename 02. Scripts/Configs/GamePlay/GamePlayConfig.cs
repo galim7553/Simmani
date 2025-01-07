@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using GamePlay.Datas;
 using GamePlay.Modules;
@@ -8,6 +7,10 @@ using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 게임 플레이의 전반적인 설정을 정의하는 클래스입니다.
+    /// 인벤토리, 스테이지, 시간 흐름, 상호작용, 대화 출력 등 다양한 설정을 제공합니다.
+    /// </summary>
     [Serializable]
     public class GamePlayConfig : IInventoryConfig, IStageConfig, ITimeCycleConfig,
         IHotKeyGroupConfig, IDamagedEffectConfig, IInteractorDetectorConfig, IInteractorDectectorModel,

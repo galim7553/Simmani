@@ -2,12 +2,14 @@ using GamePlay.Hubs;
 using GamePlay.Hubs.Equipments;
 using GamePlay.Modules;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 플레이어 캐릭터(Hero)의 설정 데이터를 정의합니다.
+    /// </summary>
     [Serializable]
     public class HeroConfig : HubConfigBase, IValidatableConfig, IDamageReceiverConfig, IEquipperConfig,
         IMoverModel, IJumperModel, ICombatStaterConfig, ICombatStaterModel, IFatigueConfig, ISprinterConfig

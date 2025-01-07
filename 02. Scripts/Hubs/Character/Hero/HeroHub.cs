@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GamePlay.Modules;
 using GamePlay.Components;
@@ -10,9 +8,15 @@ using UnityEngine.AI;
 
 namespace GamePlay.Hubs
 {
+    /// <summary>
+    /// 플레이어 캐릭터(Hero) 기능을 담당하는 클래스.
+    /// 모듈 기반의 설계를 사용하며, 캐릭터의 이동, 점프, 피격, 공격 등의 주요 기능을 처리.
+    /// </summary>
     public class HeroHub : ObjectHub, IUpdater, IFixedUpdater, IModelDependent<HeroModel>,
         IAttackable, IMovable, IJumpable, IProcessRunnable, ISprintable
     {
+
+        /// <summary>HeroHub에서 자식 오브젝트를 찾기 위한 키값.</summary>
         enum ChildKey
         {
             CameraFocus,
@@ -21,6 +25,10 @@ namespace GamePlay.Hubs
             InteractionBarBackground,
             InteractionBar,
         }
+
+        /// <summary>
+        /// HeroHub에 포함된 컴포넌트들의 모음.
+        /// </summary>
         public class HeroComponents
         {
             public CharacterControllerPhysics CharacterControllerPhysics { get; private set; }
@@ -57,8 +65,10 @@ namespace GamePlay.Hubs
         public HeroModel Model { get; private set; }
         public HeroComponents Components { get; private set; }
 
+        /// <summary>점프 상태.</summary>
         public IJumper.JumpState JumpState => _jumper.State;
 
+        /// <summary>프로세스 실행 가능 여부.</summary>
         public bool IsProcessRunnable => (_combatStater.State == ICombatStater.CombatState.Idle
             && _processRunner.IsRunning == false
             && _jumper.State == IJumper.JumpState.OnGround);
@@ -66,6 +76,7 @@ namespace GamePlay.Hubs
         public event Action OnUpdate;
         public event Action OnFixedUpdate;
 
+        // 모듈 참조 변수
         IMover _mover;
         IJumper _jumper;
         IDamageReceiver _damageReceiver;
@@ -74,6 +85,7 @@ namespace GamePlay.Hubs
         IProcessRunner _processRunner;
         ISprinter _sprinter;
 
+        /// <summary>HeroHub 컴포넌트 초기화.</summary>
         private void Awake()
         {
 
@@ -90,11 +102,13 @@ namespace GamePlay.Hubs
 
         }
 
+        /// <summary>모델 설정.</summary>
         public void SetModel(HeroModel model)
         {
             Model = model;
         }
-        
+
+        /// <summary>HeroHub 초기화 및 모듈 연결.</summary>
         public override void Initialize()
         {
             if(Modules.HasInitialized == false)
@@ -113,7 +127,6 @@ namespace GamePlay.Hubs
             _sprinter = Modules.Get<ISprinter>();
 
             // 모듈 이벤트 연결
-
             _mover.OnDirectionChanged += OnDirectionChanged;
             _damageReceiver.OnDamaged += OnDamaged;
 
@@ -129,7 +142,7 @@ namespace GamePlay.Hubs
             _combatStater.SetState(ICombatStater.CombatState.Idle);
         }
 
-
+        // ----- 모듈 및 이벤트 처리 로직 ----- //
         void OnDirectionChanged(Vector3 moveVector) 
         {
             Components.CharacterAnimatorHandler.SetForwardSpeed(moveVector.z);
@@ -169,8 +182,9 @@ namespace GamePlay.Hubs
             Components.InteractionBarBackground.SetActive(false);
             Components.CharacterAnimatorHandler.SetOnLooting(false);
         }
+        // ----- 모듈 및 이벤트 처리 로직 ----- //
 
-
+        // ----- 플레이어 캐릭터 행동 ----- //
         public void Move(Vector2 inputVector)
         {
             if (_processRunner.IsRunning == true) return;
@@ -246,6 +260,7 @@ namespace GamePlay.Hubs
                 }
             }
         }
+        // ----- 플레이어 캐릭터 행동 ----- //
 
 
         private void Update()

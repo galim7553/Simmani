@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Hubs;
 using UnityEngine;
 
 namespace GamePlay.Modules.AI
 {
+    /// <summary>
+    /// 적 AI의 동작을 구현하는 클래스입니다.
+    /// </summary>
     public class EnemyAI : ModuleBase, IEnemyAI
     {
         IEnemyAIModel _model;
@@ -33,6 +35,9 @@ namespace GamePlay.Modules.AI
         public event Action<float> OnRotated;
         public event Action OnTargetChanged;
 
+        /// <summary>
+        /// 적 AI 생성자.
+        /// </summary>
         public EnemyAI(IEnemyAIModel model, Transform transform, ICoroutineRunner coroutineRunner,
             IFollower follower, IAttackable attackable, ITargetFinder targetFinder, Vector3 spawnPosition)
         {
@@ -46,11 +51,13 @@ namespace GamePlay.Modules.AI
             SpawnPosition = spawnPosition;
         }
 
+        /// <summary>AI 상태 머신 초기화.</summary>
         public void Initialize(IBehaviour[] behaviours)
         {
             _behaviours = behaviours;
         }
 
+        /// <summary>AI 동작 시작.</summary>
         public void Start()
         {
             if(_checkStateCoroutine != null)
@@ -58,6 +65,8 @@ namespace GamePlay.Modules.AI
             SetState(EnemyAIState.Idle);
             _checkStateCoroutine = CoroutineRunner.RunCoroutine(CheckStateCo());
         }
+
+        /// <summary>AI 동작 중지.</summary>
         public void Stop()
         {
             if(_checkStateCoroutine != null)
@@ -92,6 +101,8 @@ namespace GamePlay.Modules.AI
             _target = null;
             CheckState();
         }
+
+        /// <summary>AI 상태를 확인하고 전환.</summary>
         public void CheckState()
         {
             // 새 타겟 찾기 시도

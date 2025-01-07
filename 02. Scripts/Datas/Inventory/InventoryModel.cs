@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GamePlay.Factories;
@@ -11,6 +10,9 @@ using GamePlay.Commands;
 
 namespace GamePlay.Datas
 {
+    /// <summary>
+    /// 인벤토리 모델을 관리하는 클래스입니다.
+    /// </summary>
     public class InventoryModel : DataDependantModelBase<IInventoryConfig, InventoryData>, IInventoryModel
     {
         // ----- Fields ----- //
@@ -34,17 +36,22 @@ namespace GamePlay.Datas
         public event Action<IItemModel> OnItemRemoved;
         // ----- Events ----- //
 
+        /// <summary>
+        /// 생성자: 인벤토리 모델을 초기화합니다.
+        /// </summary>
         public InventoryModel(IInventoryConfig config, InventoryData data, HeroModel heroModel, IModelFactory<IItemModel, ItemData> modelFactory) : base(config, data)
         {
             _modelFactory = modelFactory;
             _heroModel = heroModel;
             _equipperModel = _heroModel.EquipperModel;
 
+            // 기존 데이터에서 아이템을 초기화
             for (int i = 0; i < Mathf.Min(_data.ItemDatas.Count, Config.SlotLimit); i++)
                 AddItemModel(_data.ItemDatas[i]);
 
             SortItemModels();
         }
+
         public void AddItem(string key)
         {
             if (IsFull) return;

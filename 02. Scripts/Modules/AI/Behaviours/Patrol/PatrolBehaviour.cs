@@ -4,10 +4,19 @@ using UnityEngine;
 namespace GamePlay.Modules.AI
 {
 
+    /// <summary>
+    /// AI 순찰 행동을 구현한 클래스입니다.
+    /// </summary>
     public class PatrolBehaviour : BehaviourBase<IPatrolBehaviourConfig, IFollowableAI>
     {
         Coroutine _patrolCoroutine;
 
+
+        /// <summary>
+        /// 순찰 행동의 생성자.
+        /// </summary>
+        /// <param name="config">순찰 행동 설정값.</param>
+        /// <param name="ai">순찰 가능한 AI 객체.</param>
         public PatrolBehaviour(IPatrolBehaviourConfig config, IFollowableAI ai) : base(config, ai)
         {
 

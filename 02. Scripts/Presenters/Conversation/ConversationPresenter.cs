@@ -1,17 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Datas;
 using GamePlay.Views;
-using UnityEngine;
 
 namespace GamePlay.Presenters
 {
+    /// <summary>
+    /// 대화를 관리하는 프레젠터.
+    /// </summary>
     public class ConversationPresenter : ResourceDependentPresenterBase<IConversationModel, ConversationView>
     {
         int _curIndex = 0;
 
+        /// <summary>현재 대화가 진행 중인지 여부.</summary>
         public bool IsPlaying { get; private set; } = false;
+
+        /// <summary>대화가 완료되었을 때 발생하는 이벤트.</summary>
 
         public event Action OnCompleted;
 
@@ -21,6 +24,10 @@ namespace GamePlay.Presenters
             _view.OnPanelButtonClicked += ExecuteNext;
         }
 
+        /// <summary>
+        /// 대화를 시작합니다.
+        /// </summary>
+        /// <param name="model">대화 모델.</param>
         public void StartConversation(IConversationModel model)
         {
             IsPlaying = true;
@@ -32,12 +39,19 @@ namespace GamePlay.Presenters
             _view.SetLetterWait(_model.Config.LetterSpan);
             ExecuteNext();
         }
+
+        /// <summary>
+        /// 대화를 중단합니다.
+        /// </summary>
         public void StopConversation()
         {
             _view.gameObject.SetActive(false);
             IsPlaying = false;
         }
 
+        /// <summary>
+        /// 대화의 다음 줄을 실행합니다.
+        /// </summary>
         public void ExecuteNext()
         {
             if (IsPlaying == false) return;

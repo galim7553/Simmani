@@ -1,11 +1,13 @@
 using GamePlay.Hubs;
 using GamePlay.Modules;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Scene
 {
+    /// <summary>
+    /// TerrainCuller 클래스는 카메라와의 거리를 기준으로 Terrain 활성화를 관리하여 성능을 최적화하는 역할을 합니다.
+    /// </summary>
     public class TerrainCuller : ModuleBase
     {
         ITerrainCullerModel _model;
@@ -14,6 +16,12 @@ namespace GamePlay.Scene
         Terrain[] _terrains;
         Vector3[] _terrainCenters;
 
+        /// <summary>
+        /// TerrainCuller 생성자. Terrain 데이터를 초기화하고, Terrain 중심 위치를 계산합니다.
+        /// </summary>
+        /// <param name="model">Terrain Culling 설정 모델</param>
+        /// <param name="terrainParent">Terrain 객체들의 부모 Transform</param>
+        /// <param name="runner">Coroutine 실행기</param>
         public TerrainCuller(ITerrainCullerModel model, Transform terrainParent, ICoroutineRunner runner)
         {
             _model = model;
@@ -36,7 +44,10 @@ namespace GamePlay.Scene
             _runner.RunCoroutine(UpdateTerrainsCulling());
         }
 
-
+        /// <summary>
+        /// 일정 간격으로 카메라와 Terrain 간의 거리를 계산하여 Terrain의 활성화를 관리합니다.
+        /// </summary>
+        /// <returns>Coroutine</returns>
         IEnumerator UpdateTerrainsCulling()
         {
             while (true)

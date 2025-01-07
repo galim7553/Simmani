@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Datas;
-using UnityEngine;
 
 namespace GamePlay.Commands
 {
+    /// <summary>
+    /// 상점 명령 설정 인터페이스.
+    /// </summary>
     public interface IShopCommandConfig : IConversationCommandConfig, IShopConfig
     {
 

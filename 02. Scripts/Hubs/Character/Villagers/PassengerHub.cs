@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 namespace GamePlay.Hubs
 {
+    /// <summary>
+    /// 행인(Passenger) 구현을 나타냅니다.
+    /// </summary>
     public class PassengerHub : ObjectHub, IUpdater
     {
         public class PassengerComponents

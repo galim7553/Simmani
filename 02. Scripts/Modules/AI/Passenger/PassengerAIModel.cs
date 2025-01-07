@@ -9,7 +9,6 @@ namespace GamePlay.Modules.AI
         IFollowerConfig _followerConfig;
         IFollowerConfig IFollowerModel.Config => _followerConfig;
         float IFollowerModel.AngularSpeed => _followerConfig.BaseAngularSpeed;
-        float IFollowerModel.RotSpeed => _followerConfig.BaseRotSpeed;
         public float Speed => Config.BaseSpeed;
 
         public PassengerAIModel(IPassengerAIConfig config, IFollowerConfig followerConfig) : base(config)

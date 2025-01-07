@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 제네릭 싱글톤 클래스.
+/// 씬 전환 시에도 객체를 유지하는 제네릭 싱글톤 클래스.
 /// </summary>
 /// <typeparam name="T">싱글톤 클래스로 사용할 타입</typeparam>
 public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
@@ -51,6 +49,10 @@ public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
     }
 }
 
+/// <summary>
+/// 씬 전환 시 객체를 유지하지 않는 제네릭 싱글톤 클래스.
+/// </summary>
+/// <typeparam name="T">싱글톤 클래스로 사용할 타입</typeparam>
 public class ASingleton<T> : MonoBehaviour where T : ASingleton<T>
 {
     static T _inst;

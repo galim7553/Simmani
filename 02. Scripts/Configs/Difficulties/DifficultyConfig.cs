@@ -1,11 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Datas;
 using UnityEngine;
 
 namespace GamePlay.Configs
 {
+    /// <summary>
+    /// 게임의 난이도 설정을 정의하는 클래스입니다.
+    /// 난이도 유형, 산삼 확률, 최대 적 수와 같은 데이터를 제공합니다.
+    /// </summary>
     [Serializable]
     public class DifficultyConfig : IDifficultyConfig
     {

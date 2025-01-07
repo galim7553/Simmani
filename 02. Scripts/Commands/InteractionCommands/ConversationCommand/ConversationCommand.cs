@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using GamePlay.Modules;
-using UnityEngine;
 
 namespace GamePlay.Commands
 {
+    /// <summary>
+    /// 대화 명령을 구현하는 클래스.
+    /// </summary>
     public class ConversationCommand : IInteractionCommand
     {
         IConversationCommandConfig _config;
@@ -21,14 +21,17 @@ namespace GamePlay.Commands
 
         public void Execute(IInteractionPlayer interactionPlayer, IProcessRunnable processRunnable, IInteractor interactor)
         {
+            // 대화 키가 유효하지 않으면 실행하지 않음.
             if (_config.ConversationKeys == null || _config.ConversationKeys.Count == 0) return;
 
+            // 이미 대화 중이거나 다른 작업이 진행 중인 경우 실행하지 않음.
             if (interactionPlayer.ConversationPlayer.IsPlaying == true
                 || processRunnable.IsProcessRunnable == false) return;
 
             _conversationPlayer = interactionPlayer.ConversationPlayer;
             _conversationPlayer.OnCompleted += OnConversationCompleted;
 
+            // 랜덤 대화 시작.
             _conversationPlayer.StartConversation(_config.ConversationKeys.Choose());
             ProcessModel processModel = new ProcessModel(IProcessable.ProcessType.Idle, 0, null, OnProcessFailed);
 
@@ -40,6 +43,7 @@ namespace GamePlay.Commands
 
         void OnProcessFailed()
         {
+            // 대화 실패 시 처리.
             _conversationPlayer.StopConversation();
             _interactor.EndInteraction();
 
@@ -49,6 +53,7 @@ namespace GamePlay.Commands
         }
         void OnConversationCompleted()
         {
+            // 대화 완료 시 처리.
             _onRunnableEnded?.Invoke();
             _onRunnableEnded = null;
 

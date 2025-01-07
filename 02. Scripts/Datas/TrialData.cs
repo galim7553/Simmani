@@ -1,11 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GamePlay.Modules;
 
 namespace GamePlay.Datas
 {
+    /// <summary>
+    /// 게임의 시도 데이터를 저장하는 클래스입니다.
+    /// 각 주요 데이터(인벤토리, 스테이지, 시간, 플레이어 캐릭터)로 구성됩니다.
+    /// </summary>
     [Serializable]
     public class TrialData
     {

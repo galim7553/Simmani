@@ -1,10 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Components
 {
+    /// <summary>
+    /// 충돌 이벤트를 처리하는 컴포넌트.
+    /// </summary>
     public class CollisionHandler : MonoBehaviour
     {
         public event Action<Collision> OnCollisionEntered;

@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace GamePlay.Scene
 {
+    /// <summary>
+    /// 단일 셀에 대한 데이터 클래스. 셀의 위치, 중심 좌표, 관련 지형, 스폰 가능 여부를 포함합니다.
+    /// </summary>
     [Serializable]
     public class CellData
     {
@@ -33,6 +32,10 @@ namespace GamePlay.Scene
         }
     }
 
+
+    /// <summary>
+    /// 다수의 셀 데이터를 보관하는 컨테이너 클래스. 셀의 크기와 스폰 반경 포함.
+    /// </summary>
     [Serializable]
     public class CellDataContainer
     {
@@ -53,6 +56,9 @@ namespace GamePlay.Scene
         }
     }
 
+    /// <summary>
+    /// 산 지형 데이터 관리 클래스. 셀 데이터와 스폰 가능한 셀을 관리하며, 셀 검색 기능을 제공합니다.
+    /// </summary>
     public class MountainData
     {
         CellDataContainer _cellDataContainer;
@@ -78,6 +84,11 @@ namespace GamePlay.Scene
         }
 
 
+        /// <summary>
+        /// 지정된 위치에 해당하는 셀 데이터를 반환합니다.
+        /// </summary>
+        /// <param name="position">월드 좌표</param>
+        /// <returns>셀 데이터 또는 null</returns>
         public CellData GetCellData(Vector3 position)
         {
             Vector2Int pos = new Vector2Int();
@@ -87,6 +98,14 @@ namespace GamePlay.Scene
                 return cellData;
             return null;
         }
+
+        /// <summary>
+        /// 특정 위치 주변의 셀 데이터를 반환합니다.
+        /// </summary>
+        /// <param name="position">기준 위치</param>
+        /// <param name="minDist">최소 거리</param>
+        /// <param name="maxDist">최대 거리</param>
+        /// <param name="isSpawnable">스폰 가능 여부</param>
 
         public List<CellData> GetSurroundingCellDatas(Vector3 position, float minDist, float maxDist, bool isSpawnable = true)
         {

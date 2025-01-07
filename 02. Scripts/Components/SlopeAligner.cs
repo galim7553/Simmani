@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace GamePlay.Components
 {
+    /// <summary>
+    /// 오브젝트를 경사면에 정렬하는 컴포넌트.
+    /// </summary>
     public class SlopeAligner : MonoBehaviour
     {
         [SerializeField] Transform _frontPoint; // 오브젝트의 앞쪽 레이캐스트 포인트
@@ -29,6 +32,9 @@ namespace GamePlay.Components
             }
         }
 
+        /// <summary>
+        /// 오브젝트를 경사면에 맞게 회전시킵니다.
+        /// </summary>
         void AlignToSlope()
         {
             // 앞쪽 레이캐스트
