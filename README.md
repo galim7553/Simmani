@@ -48,16 +48,21 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 ## 빌드
 - [구글 드라이브](https://drive.google.com/file/d/1BLxmyynvWDg6LR1g5DV5Ho8IA1CaVsni/view?usp=sharing)
 - 데이터 저장/로드, 게임 오버, 서브 퀘스트 등은 작업 중에 있습니다.
-## 조작법
-- WASD: 이동
-- 마우스 이동: 카메라 방향 전환
-- 마우스 좌클릭: (무기 장착 시)공격
-- Space Bar: 점프
-- Left Shift: 가속
-- I: 인벤토리창 열기
-- E: 상호작용
-- Enter: (산에서) 메뉴 씬으로 돌아가기
-- F1 ~ F4: 그래픽 옵션 변경(Low ~ Ultra)
+
+<details>
+<summary>조작법</summary>
+
+- WASD: 이동  
+- 마우스 이동: 카메라 방향 전환  
+- 마우스 좌클릭: (무기 장착 시) 공격  
+- Space Bar: 점프  
+- Left Shift: 가속  
+- I: 인벤토리창 열기  
+- E: 상호작용  
+- Enter: (산에서) 메뉴 씬으로 돌아가기  
+- F1 ~ F4: 그래픽 옵션 변경(Low ~ Ultra)  
+
+</details>
 
 ## 사용 에셋
 - TextMeshPro
