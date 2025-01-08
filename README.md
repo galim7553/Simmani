@@ -156,6 +156,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 <img src="./Clips/uml/01_damaged.png">
 
 **피격 기능(DamageReceiver) 모듈 예시**
+
 [DamageReceiver - Config](./Scripts/Modules/DamageReceiverConfig.cs)  
 [DamageReceiver - Model](./Scripts/Modules/DamageReceiverModel.cs)  
 [DamageReceiver - Implementation](./Scripts/Modules/DamageReceiver.cs)  
