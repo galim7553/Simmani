@@ -77,9 +77,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - 개발 속도와 유지보수 효율성 향상.
   - 인터페이스를 사용해 모듈 변경 가능.
   
-<details>
-<summary>예시</summary>
-
+- **예시**
 
 **모듈 예시**
 | 모듈명         | 역할                                    |
