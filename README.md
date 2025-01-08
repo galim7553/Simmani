@@ -94,6 +94,59 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
   횃불 모델 에셋
 
+## 주요 기능
+### 1) 모듈 중심 설계
+- 개요
+  각 기능을 독립적인 모듈로 설계하여 재사용성과 유지보수성을 추구하였습니다.
+  독립적인 모듈들이 게임 내 하나의 개체(Entity)를 형성합니다.
+
+- 효과
+  새로운 기능 추가 시 독립적인 모듈만 개발하여 쉽게 확장 가능.
+  모듈 재사용을 통해 반복적인 코드 작성을 방지.
+  개발 속도와 유지보수 효율성 향상.
+  인터페이스를 사용해 모듈 대체 가능.
+  
+<details>
+<summary>모듈 예시</summary>
+
+| 모듈명         | 역할                                    |
+| ------------- | ------------------------------------- |
+| **AI**         | 적 캐릭터 등 NPC의 행동 상태를 관리 (Idle, Trace, Attack 등). |
+| **CombatStater** | 전투 중 상태(Idle, Stiffened, Attacking 등) 관리. |
+| **DamageReceiver** | 공격에 의한 피해 처리 및 피격 이벤트 발생.        |
+| **DamageSender**   | 적 또는 플레이어의 공격 로직 처리.           |
+| **Follower**       | 목표를 추적하고 이동 로직을 수행.            |
+| **Jumper**         | 점프 동작을 관리.                        |
+| **Mover**          | 유저 입력에 따른 기본 이동 처리 (걷기, 뛰기 등).             |
+| **ProcessRunner**  | 자원 채집 등 상호작용 처리.               |
+| **Rotator**        | 카메라 및 캐릭터 회전 처리.               |
+| **TargetFinder**   | 목표(적, 플레이어 등)를 탐지.               |
+| **Equipper**       | 장비 장착 및 해제 로직 처리.              |
+| **FatigueController** | 피로도 시스템 관리 (스태미나 감소 등).      |
+
+**활용 예**
+| **개체**    | **모듈 이름**          | **설명**                                                                 |
+|---------------|-----------------------|---------------------------------------------------------------------------|
+| **Hero**      | IMover                | 플레이어의 이동 처리를 담당                                              |
+|               | IJumper               | 점프 기능을 담당                                                         |
+|               | IDamageReceiver       | 피격 이벤트 및 체력 관리                                                 |
+|               | IEquipper             | 장비 착용 및 관리                                                        |
+|               | ICombatStater         | 전투 상태 관리 (Idle, Attacking, Stiffened 등)                            |
+|               | IProcessRunner        | 채집 등 특정 행동의 진행 처리                                            |
+|               | ISprinter             | 플레이어의 달리기(스프린트) 상태 관리                                     |
+| **Enemy**     | IFollower             | AI의 목표를 따라 이동하는 기능 관리                                      |
+|               | ICombatStater         | 전투 상태 관리 (Idle, Attacking, Stiffened 등)                            |
+|               | IDamageReceiver       | 피격 이벤트 및 체력 관리                                                 |
+|               | IDamageSender         | 공격 이벤트 및 데미지 처리                                               |
+|               | IEnemyAI              | AI의 상태 전환 및 행동 처리                                              |
+|               | ITargetFinder         | 타겟 탐지 및 탐색 로직 처리                                              |
+
+**플레이어 캐릭터(Hero)의 피격 처리 시퀀스**
+<img src="./Clips/uml/01_damaged.png" width="400">
+
+</details>
+
+
 ## 주요 사용 기술
 
 | 항목명        | 설명      |
