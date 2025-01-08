@@ -205,7 +205,23 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ---
 
-#### **6. Terrain Culling 최적화**
+#### **6. CellData 생성 및 관리 시스템**
+- **개요**  
+  Terrain을 셀 단위로 나누어 데이터로 관리하는 시스템.
+- **특징**
+  - **CellDataCreator**를 통해 Terrain 및 NavMesh 정보를 분석하고, 적 캐릭터 스폰 가능 여부를 포함한 셀 데이터를 JSON 형식으로 저장.
+  - **MountainData**를 활용해 스폰 가능 지역 탐색, 특정 영역의 데이터 조회 등 수행.
+  - 스폰 로직과 지형 데이터 연계를 통해 자연스러운 게임플레이 구현.(NavMesh 영역 밖, 플레이어가 갈 수 없는 지역에 적 스폰 제한)
+- **효과**
+  - 스폰 가능한 위치 정보를 사전에 데이터화하여 관리.
+  - 레벨 디자인 및 디버깅에 활용 가능한 데이터 기반 설계.
+- **예시**
+  - [CellDataCreator](./Scripts/Scenes/PlayScene/MountainScene/Mountain/CellDataCreator.cs)
+  - [MountainData](./Scripts/Scenes/PlayScene/MountainScene/Mountain/MountainData.cs)
+
+---
+
+#### **7. Terrain Culling 최적화**
 - **개요**  
   카메라 범위 밖의 Terrain을 비활성화하여 성능 최적화.
 - **특징**
@@ -216,7 +232,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ---
 
-#### **7. Nature Package - Forest Environment 에셋 다듬기**
+#### **8. Nature Package - Forest Environment 에셋 다듬기**
 - **개요**  
   유료 에셋의 활용도를 극대화하기 위해 URP 환경에서 에셋을 최적화.
 - **특징**
@@ -226,7 +242,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - [에셋 수정 기록](https://galim7553.tistory.com/20)
 ---
 
-#### **8. 캐릭터 에셋 편집 및 애니메이션 적용**
+#### **9. 캐릭터 에셋 편집 및 애니메이션 적용**
 - **개요**  
   캐릭터 모델과 애니메이션을 Mixamo 및 Blender로 편집.
 - **특징**
