@@ -163,6 +163,8 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 </details>
 
+---
+
 #### **2. AI 시스템 설계와 구현**
 - **개요**  
   적 캐릭터의 다양한 행동(Idle, Trace, Attack)을 유연하게 확장 가능하도록 설계된 AI 시스템.
@@ -171,19 +173,20 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - `TargetFinder`, `Follower`, `CombatStater`, `EnemyAI` 등 모듈의 조합으로 구성.
   - 새로운 AI 행동 추가 시 모듈만 확장하면 간단히 추가 가능.
 - **예시**
-  - `EnemyHub`: 적 캐릭터의 모든 AI 동작과 상태를 관리.
-    - [코드 링크](./Scripts/Hubs/EnemyHub.cs)
+  - [EnemyHub](./Scripts/Hubs/Character/Enemies/EnemyHub.cs)
+  - [EnemyAI](./Scripts/Modules/AI/Enemy/EnemyAI.cs)
 
 ---
 
 #### **3. Object Pooling 구현**
-- **개요**
+- **개요**  
   자주 사용하는 오브젝트를 미리 생성하고 재활용하여 성능 최적화.
 - **특징**
   - `PoolManager`를 사용해 적 캐릭터, 이펙트 등 재사용.
   - 메모리 할당/해제를 줄여 런타임 성능 향상.
 - **예시**
-  - [PoolManager 구현 코드](./Scripts/Managers/PoolManager.cs)
+  - [PoolManager](./Scripts/!Managers/PoolManager.cs)
+  - [Poolable](./Scripts/!Managers/Poolable.cs)
 
 ---
 
@@ -194,8 +197,8 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - Command: 특정 동작을 객체로 추상화하여 재사용성 극대화.
   - Interaction: 상호작용을 모듈화하여 상점, 대화, 채집 등 다양한 시나리오 처리.
 - **예시**
-  - `SansamCommand`: 산삼 채집 상호작용 처리.
-    - [코드 링크](./Scripts/Commands/SansamCommand.cs)
+  - `ConversationCommand`: 대화 커맨드 처리.
+    - [스크립트](./Scripts/Commands/InteractionCommands/ConversationCommand/ConversationCommand.cs)
 
 ---
 
@@ -203,10 +206,10 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 - **개요**  
   Unity에서 에디터 스크립트를 활용해 개발 효율성을 증대.
 - **특징**
-  - `ShowIf` 어트리뷰트를 사용해 조건부 UI 노출.
   - CustomPropertyDrawer를 통해 Inspector UI 개선.
 - **예시**
-  - [CustomPropertyDrawer 코드](./Scripts/Editor/CustomPropertyDrawer.cs)
+  - [ShowIfDrawer](./Scripts/Editor/CustomPropertyDrawers/ShowIfDrawer.cs)
+  - [ShowIfDrawer 사용 예시](./Scripts/Components/CharacterControllerPhysics.cs)
 
 ---
 
@@ -217,7 +220,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - 카메라와 Terrain 간 거리 계산 후 비활성화.
   - 대규모 Terrain에서도 퍼포먼스 보장.
 - **예시**
-  - [TerrainCuller 구현 코드](./Scripts/Scene/TerrainCuller.cs)
+  - [TerrainCuller](./Scripts/Scenes/PlayScene/MountainScene/TerrainCuller/TerrainCuller.cs)
 
 ---
 
@@ -228,16 +231,19 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - WindZone 효과 적용 문제 해결.
   - CustomEditor 스크립트를 수정해 RenderFace 문제 해결.
 - **예시**
-  - [에셋 수정 기록 보기](./Documents/AssetOptimization.md)
-
+  - [에셋 수정 기록](https://galim7553.tistory.com/20)
 ---
 
-#### **8. Hero 및 Enemy 캐릭터 설계**
+#### **8. 에셋 최적화 및 편집**
 - **개요**  
-  플레이어와 적 캐릭터의 행동과 상태를 모듈 중심 설계로 구현.
+  캐릭터 모델과 애니메이션을 Mixamo 및 Blender로 편집.
 - **특징**
-  - Hero: 이동, 점프, 전투, 상호작용 처리.
-  -
+  - LOD 네이밍 규칙 정리.
+  - Mixamo 애니메이션 적용.
+- **예시**
+  - [캐릭터 에셋 편집 기록](https://galim7553.tistory.com/16)
+
+---
 
 
 ## 주요 사용 기술
