@@ -142,7 +142,8 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 |               | ITargetFinder         | 타겟 탐지 및 탐색 로직 처리                                              |
 
 **플레이어 캐릭터(Hero)의 피격 처리 시퀀스**
-<img src="./Clips/uml/01_damaged.png" width="400">
+
+<img src="./Clips/uml/01_damaged.png">
 
 </details>
 
