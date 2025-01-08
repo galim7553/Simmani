@@ -107,7 +107,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   인터페이스를 사용해 모듈 대체 가능.
   
 <details>
-<summary>모듈 예시</summary>
+<summary>예시</summary>
 
 | 모듈명         | 역할                                    |
 | ------------- | ------------------------------------- |
