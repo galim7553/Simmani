@@ -189,7 +189,23 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ---
 
-#### **7. Terrain Culling 최적화**
+#### **7. MVP 패턴을 활용한 UI 구현**
+- **개요**  
+  MVP(Model-View-Presenter) 패턴을 활용하여 UI 요소의 설계와 유지보수를 효율화.
+- **특징**
+  - View와 비즈니스 로직을 분리하여 테스트 가능성과 확장성 강화.
+  - Presenter는 View와 직접 연결되며, Model 데이터를 View에 반영.
+  - UI 동작(버튼 클릭, 값 변경 등)에 따른 로직은 Presenter가 담당.
+- **효과**
+  - View와 로직의 결합도를 낮춰 재사용성과 테스트 용이성 확보.
+  - 기획 변경에 따른 UI 수정 작업 간소화.
+- **예시**
+  - [InventoryMenuPresenter](./Scripts/Presenters/Inventory/InventoryMenuPresenter.cs): 인벤토리 UI의 데이터를 관리하고, View를 업데이트.
+  - [InventoryMenuView](./Scripts/Views/Inventory/InventoryMenuView.cs): 인벤토리 UI를 담당하는 View.
+
+---
+
+#### **8. Terrain Culling 최적화**
 - **개요**  
   카메라 범위 밖의 Terrain을 비활성화하여 성능 최적화.
 - **특징**
@@ -200,7 +216,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ---
 
-#### **8. Nature Package - Forest Environment 에셋 다듬기**
+#### **9. Nature Package - Forest Environment 에셋 다듬기**
 - **개요**  
   유료 에셋의 활용도를 극대화하기 위해 URP 환경에서 에셋을 최적화.
 - **특징**
@@ -210,7 +226,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - [에셋 수정 기록](https://galim7553.tistory.com/20)
 ---
 
-#### **9. 캐릭터 에셋 편집 및 애니메이션 적용**
+#### **10. 캐릭터 에셋 편집 및 애니메이션 적용**
 - **개요**  
   캐릭터 모델과 애니메이션을 Mixamo 및 Blender로 편집.
 - **특징**
