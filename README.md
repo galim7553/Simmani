@@ -123,9 +123,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 | **Mover**          | 유저 입력에 따른 기본 이동 처리 (걷기, 뛰기 등).             |
 | **ProcessRunner**  | 자원 채집 등 상호작용 처리.               |
 | **Rotator**        | 카메라 및 캐릭터 회전 처리.               |
-| **TargetFinder**   | 목표(적, 플레이어 등)를 탐지.               |
 | **Equipper**       | 장비 장착 및 해제 로직 처리.              |
-| **FatigueController** | 피로도 시스템 관리 (스태미나 감소 등).      |
 
 **활용 예**
 | **개체**    | **모듈 이름**          | **설명**                                                                 |
