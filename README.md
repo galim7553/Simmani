@@ -64,36 +64,6 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 </details>
 
-## 사용 에셋
-- TextMeshPro
-- Cinemachine
-- Terrain Tools
-- 문화체육관광부 메타버스 데이터랩
-
-  플레이어 캐릭터 모델 에셋
-- Nature Package - Forest Environment
-
-  환경(Terrain, Tree, Grass) 에셋
-
-- Firefly Flare
-
-  ParticleSystem 기반 이펙트 에셋
-- FastSky - Procedural Sky and Clouds URP
-
-  SkyBox 에셋
-- KHS - Naganeupseong Walled Town, Suncheon
-
-  마을 오브젝트 모델 에셋
-- Oni Demon-Samurai
-
-  적 모델 에셋
-- Bengal and African Tiger
-
-  적 모델 에셋
-- Campfires & Torches Models and FX!
-
-  횃불 모델 에셋
-
 ## 주요 기능
 #### 1. 모듈 중심 설계
 - **개요**
@@ -263,3 +233,34 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 | Scriptable Object  |  테스트 플레이 중 설정값 편집에 활용 |
 | Extension Method  |  컴포넌트 바인딩, 리스트 중 랜덤 선택 등에 활용 |
 | Avatar Mask |  3D 애니메이션에 활용 |
+
+
+## 사용 에셋
+- TextMeshPro
+- Cinemachine
+- Terrain Tools
+- 문화체육관광부 메타버스 데이터랩
+
+  플레이어 캐릭터 모델 에셋
+- Nature Package - Forest Environment
+
+  환경(Terrain, Tree, Grass) 에셋
+
+- Firefly Flare
+
+  ParticleSystem 기반 이펙트 에셋
+- FastSky - Procedural Sky and Clouds URP
+
+  SkyBox 에셋
+- KHS - Naganeupseong Walled Town, Suncheon
+
+  마을 오브젝트 모델 에셋
+- Oni Demon-Samurai
+
+  적 모델 에셋
+- Bengal and African Tiger
+
+  적 모델 에셋
+- Campfires & Torches Models and FX!
+
+  횃불 모델 에셋
