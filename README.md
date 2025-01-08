@@ -182,7 +182,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   - 스폰 로직과 지형 데이터 연계를 통해 플레이어 캐릭터 주변에 자연스럽게 적 스폰.(NavMesh 영역 밖, 플레이어가 갈 수 없는 지역에 적 스폰 제한)
 - **효과**
   - 스폰 가능한 위치 정보를 사전에 데이터화하여 관리.
-  - 게임 플레이 중 실시간 연산을 줄여 최적화.
+  - 런타임 중 실시간 연산을 줄여 최적화.
 - **예시**
   - [CellDataCreator](./Scripts/Scenes/PlayScene/MountainScene/Mountain/CellDataCreator.cs)
   - [MountainData](./Scripts/Scenes/PlayScene/MountainScene/Mountain/MountainData.cs)
