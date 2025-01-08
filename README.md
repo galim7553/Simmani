@@ -143,7 +143,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 **플레이어 캐릭터(Hero)의 피격 처리 시퀀스**
 
-<img src="./Clips/uml/01_damaged.png" width="400">
+<img src="./Clips/uml/01_damaged.png">
 
 </details>
 
