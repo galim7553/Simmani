@@ -98,17 +98,25 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 ### 1) 모듈 중심 설계
 - 개요
   각 기능을 독립적인 모듈로 설계하여 재사용성과 유지보수성을 추구하였습니다.
+  
   독립적인 모듈들이 게임 내 하나의 개체(Entity)를 형성합니다.
+
+  각 모듈은 **설정 데이터(Config)**, **런타임 데이터(Model)**, **구현(Implementation)**의 구조로 설계되어 있습니다.  
+  설정 데이터는 Unity Editor에서 실시간으로 편집 가능하며, 기획자가 테스트 중 즉시 수정하여 게임플레이를 조율할 수 있습니다.
 
 - 효과
   새로운 기능 추가 시 독립적인 모듈만 개발하여 쉽게 확장 가능.
+  
   모듈 재사용을 통해 반복적인 코드 작성을 방지.
+  
   개발 속도와 유지보수 효율성 향상.
+  
   인터페이스를 사용해 모듈 대체 가능.
   
 <details>
 <summary>예시</summary>
 
+**모듈 예시**
 | 모듈명         | 역할                                    |
 | ------------- | ------------------------------------- |
 | **AI**         | 적 캐릭터 등 NPC의 행동 상태를 관리 (Idle, Trace, Attack 등). |
@@ -144,6 +152,11 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 **플레이어 캐릭터(Hero)의 피격 처리 시퀀스**
 
 <img src="./Clips/uml/01_damaged.png">
+
+**피격 기능(DamageReceiver) 모듈 예시**
+[DamageReceiver - Config](./Scripts/Modules/DamageReceiverConfig.cs)  
+[DamageReceiver - Model](./Scripts/Modules/DamageReceiverModel.cs)  
+[DamageReceiver - Implementation](./Scripts/Modules/DamageReceiver.cs)  
 
 </details>
 
