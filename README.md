@@ -102,7 +102,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   
   독립적인 모듈들이 게임 내 하나의 개체(Entity)를 형성합니다.
 
-  각 모듈은 **설정 데이터(Config)**, **런타임 데이터(Model)**, **구현(Implementation)**의 구조로 설계되어 있습니다.  
+  각 모듈은 **설정 데이터(Config)**, **런타임 데이터(Model)**, **구현(Implementation)** 구조로 설계되어 있습니다.  
   설정 데이터는 Unity Editor에서 실시간으로 편집 가능하며, 기획자가 테스트 중 즉시 수정하여 게임플레이를 조율할 수 있습니다.
 
 - 효과
