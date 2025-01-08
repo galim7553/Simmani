@@ -210,11 +210,10 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   Terrain을 셀 단위로 나누어 데이터로 관리하는 시스템.
 - **특징**
   - **CellDataCreator**를 통해 Terrain 및 NavMesh 정보를 분석하고, 적 캐릭터 스폰 가능 여부를 포함한 셀 데이터를 JSON 형식으로 저장.
-  - **MountainData**를 활용해 스폰 가능 지역 탐색, 특정 영역의 데이터 조회 등 수행.
-  - 스폰 로직과 지형 데이터 연계를 통해 자연스러운 게임플레이 구현.(NavMesh 영역 밖, 플레이어가 갈 수 없는 지역에 적 스폰 제한)
+  - 스폰 로직과 지형 데이터 연계를 통해 플레이어 캐릭터 주변에 자연스럽게 적 스폰.(NavMesh 영역 밖, 플레이어가 갈 수 없는 지역에 적 스폰 제한)
 - **효과**
   - 스폰 가능한 위치 정보를 사전에 데이터화하여 관리.
-  - 레벨 디자인 및 디버깅에 활용 가능한 데이터 기반 설계.
+  - 게임 플레이 중 실시간 연산을 줄여 최적화.
 - **예시**
   - [CellDataCreator](./Scripts/Scenes/PlayScene/MountainScene/Mountain/CellDataCreator.cs)
   - [MountainData](./Scripts/Scenes/PlayScene/MountainScene/Mountain/MountainData.cs)
@@ -226,7 +225,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   카메라 범위 밖의 Terrain을 비활성화하여 성능 최적화.
 - **특징**
   - 카메라와 Terrain 간 거리 계산 후 비활성화.
-  - 대규모 Terrain에서도 퍼포먼스 보장.
+  - 대규모 Terrain에서도 프레임 드랍 방지.
 - **예시**
   - [TerrainCuller](./Scripts/Scenes/PlayScene/MountainScene/TerrainCuller/TerrainCuller.cs)
 
