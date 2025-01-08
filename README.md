@@ -186,11 +186,11 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 - **개요**  
   플레이어와 게임 오브젝트 간의 상호작용을 처리하는 트리거 시스템.
 - **특징**
-  - Command: 특정 동작을 객체로 추상화하여 재사용성 극대화.
-  - Interaction: 상호작용을 모듈화하여 상점, 대화, 채집 등 다양한 시나리오 처리.
+  - Command: 게임 내 특정 동작들을 객체화하여 재사용성 추구.
+  - Interaction: 상호작용을 모듈화하여 상점, 대화, 채집 등 다양한 시나리오 처리. Command와 연계 가능.
 - **예시**
-  - `ConversationCommand`: 대화 커맨드 처리.
-    - [스크립트](./Scripts/Commands/InteractionCommands/ConversationCommand/ConversationCommand.cs)
+  - [ConversationCommand](./Scripts/Commands/InteractionCommands/ConversationCommand/ConversationCommand.cs)
+  - [InteractionPlayer](./Scripts/Modules/InteractionPlayer/InteractionPlayer.cs)
 
 ---
 
