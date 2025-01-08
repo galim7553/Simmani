@@ -96,7 +96,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 
 ## 주요 기능
 ### 1) 모듈 중심 설계
-- 개요
+- **개요**
 
   각 기능을 독립적인 모듈로 설계하여 재사용성과 유지보수성을 추구하였습니다.
   
@@ -105,7 +105,7 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
   각 모듈은 **설정 데이터(Config)**, **런타임 데이터(Model)**, **구현(Implementation)** 구조로 설계되어 있습니다.  
   설정 데이터는 Unity Editor에서 실시간으로 편집 가능하며, 기획자가 테스트 중 즉시 수정하여 게임플레이를 조율할 수 있습니다.
 
-- 효과
+- **효과**
 
   새로운 기능 추가 시 독립적인 모듈만 개발하여 쉽게 확장 가능.
   
@@ -162,6 +162,82 @@ https://www.youtube.com/watch?v=pqw_-IGxv8Q
 [DamageReceiver - Implementation](./Scripts/Modules/DamageReceiver/DamageReceiver.cs)  
 
 </details>
+
+#### **2. AI 시스템 설계와 구현**
+- **개요**  
+  적 캐릭터의 다양한 행동(Idle, Trace, Attack)을 유연하게 확장 가능하도록 설계된 AI 시스템.
+- **특징**
+  - State Pattern을 사용하여 행동 전환(State Transition)을 관리.
+  - `TargetFinder`, `Follower`, `CombatStater`, `EnemyAI` 등 모듈의 조합으로 구성.
+  - 새로운 AI 행동 추가 시 모듈만 확장하면 간단히 추가 가능.
+- **예시**
+  - `EnemyHub`: 적 캐릭터의 모든 AI 동작과 상태를 관리.
+    - [코드 링크](./Scripts/Hubs/EnemyHub.cs)
+
+---
+
+#### **3. Object Pooling 구현**
+- **개요**
+  자주 사용하는 오브젝트를 미리 생성하고 재활용하여 성능 최적화.
+- **특징**
+  - `PoolManager`를 사용해 적 캐릭터, 이펙트 등 재사용.
+  - 메모리 할당/해제를 줄여 런타임 성능 향상.
+- **예시**
+  - [PoolManager 구현 코드](./Scripts/Managers/PoolManager.cs)
+
+---
+
+#### **4. Command와 Interaction 시스템 통합 설계**
+- **개요**  
+  플레이어와 게임 오브젝트 간의 상호작용을 처리하는 트리거 시스템.
+- **특징**
+  - Command: 특정 동작을 객체로 추상화하여 재사용성 극대화.
+  - Interaction: 상호작용을 모듈화하여 상점, 대화, 채집 등 다양한 시나리오 처리.
+- **예시**
+  - `SansamCommand`: 산삼 채집 상호작용 처리.
+    - [코드 링크](./Scripts/Commands/SansamCommand.cs)
+
+---
+
+#### **5. Unity Editor 확장**
+- **개요**  
+  Unity에서 에디터 스크립트를 활용해 개발 효율성을 증대.
+- **특징**
+  - `ShowIf` 어트리뷰트를 사용해 조건부 UI 노출.
+  - CustomPropertyDrawer를 통해 Inspector UI 개선.
+- **예시**
+  - [CustomPropertyDrawer 코드](./Scripts/Editor/CustomPropertyDrawer.cs)
+
+---
+
+#### **6. Terrain Culling 최적화**
+- **개요**  
+  카메라 범위 밖의 Terrain을 비활성화하여 성능 최적화.
+- **특징**
+  - 카메라와 Terrain 간 거리 계산 후 비활성화.
+  - 대규모 Terrain에서도 퍼포먼스 보장.
+- **예시**
+  - [TerrainCuller 구현 코드](./Scripts/Scene/TerrainCuller.cs)
+
+---
+
+#### **7. Nature Package - Forest Environment 에셋 다듬기**
+- **개요**  
+  유료 에셋의 활용도를 극대화하기 위해 URP 환경에서 에셋을 최적화.
+- **특징**
+  - WindZone 효과 적용 문제 해결.
+  - CustomEditor 스크립트를 수정해 RenderFace 문제 해결.
+- **예시**
+  - [에셋 수정 기록 보기](./Documents/AssetOptimization.md)
+
+---
+
+#### **8. Hero 및 Enemy 캐릭터 설계**
+- **개요**  
+  플레이어와 적 캐릭터의 행동과 상태를 모듈 중심 설계로 구현.
+- **특징**
+  - Hero: 이동, 점프, 전투, 상호작용 처리.
+  -
 
 
 ## 주요 사용 기술
